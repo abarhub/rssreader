@@ -1,0 +1,16 @@
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    #url: jdbc:h2:file:/data/demo
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      naming_strategy: org.hibernate.cfg.EJB3NamingStrategy
+    console:
+      enabled: true
+
+
