@@ -12,5 +12,25 @@ spring:
       naming_strategy: org.hibernate.cfg.EJB3NamingStrategy
     console:
       enabled: true
+  cache:
+    cache-names: http
+    caffeine:
+      spec: maximumSize=500, expireAfterAccess=30m
 
+management.endpoints:
+    web.exposure.include: info, health, metrics, scheduledtasks, sessions
+    caches.enabled: true
+    metrics.enabled: true
+    scheduledtasks.enabled: true
+    sessions.enabled: true
+
+logging:
+  level:
+    org.springframework.cache: DEBUG
+
+app:
+  site-initial:
+  scheduler:
+    delay: 10000
+    initial-delay: 5000
 

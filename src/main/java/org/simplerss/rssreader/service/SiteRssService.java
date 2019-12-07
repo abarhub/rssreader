@@ -49,6 +49,7 @@ public class SiteRssService {
 
     public void ajouteSite(String url){
         if(!StringUtils.isEmpty(url)) {
+            LOGGER.info("ajoute du site: {}", url);
             listeSites.add(url);
         }
     }

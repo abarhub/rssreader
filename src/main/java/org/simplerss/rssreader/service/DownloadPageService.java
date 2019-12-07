@@ -82,7 +82,8 @@ public class DownloadPageService {
                     .setConnectTimeout(30000)
                     .setSocketTimeout(30000)
                     .build();
-            cachingClient = CachingHttpClients.custom().setHttpCacheStorage(httpCacheService)
+            cachingClient = CachingHttpClients.custom()
+                    //.setHttpCacheStorage(httpCacheService) // ne fonctionne pas
                     .setCacheConfig(cacheConfig)
                     .setDefaultRequestConfig(requestConfig)
                     .build();

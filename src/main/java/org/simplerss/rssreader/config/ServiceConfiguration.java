@@ -1,5 +1,6 @@
 package org.simplerss.rssreader.config;
 
+import org.simplerss.rssreader.properties.RssReaderProperties;
 import org.simplerss.rssreader.repository.SiteRssRepository;
 import org.simplerss.rssreader.service.*;
 import org.simplerss.rssreader.web.SiteRssControler;
@@ -17,8 +18,9 @@ public class ServiceConfiguration {
 //    }
 
     @Bean
-    public SchedulerService schedulerService(SiteRssService siteRssService){
-        return new SchedulerService(siteRssService);
+    public SchedulerService schedulerService(SiteRssService siteRssService,
+                                             RssReaderProperties rssReaderProperties){
+        return new SchedulerService(siteRssService, rssReaderProperties);
     }
 
     @Bean
@@ -36,4 +38,11 @@ public class ServiceConfiguration {
     public DownloadPageService downloadPageService(HttpCacheService httpCacheService){
         return new DownloadPageService(httpCacheService);
     }
+
+    @Bean
+    public InitialisationService initialisationService(SiteRssService siteRssService,
+                                                     RssReaderProperties rssReaderProperties){
+        return new InitialisationService(siteRssService, rssReaderProperties);
+    }
+
 }
